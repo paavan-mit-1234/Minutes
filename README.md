@@ -17,7 +17,7 @@ An AI-powered Meeting Intelligence Application that automatically transcribes me
 ## Tech Stack
 
 ### Frontend
-- **Next.js 14** – React framework
+- **Next.js 15** – React framework
 - **TailwindCSS** – Styling
 - **Chart.js** – Emotion timeline visualization
 - **React Dropzone** – File upload
