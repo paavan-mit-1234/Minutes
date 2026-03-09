@@ -83,8 +83,7 @@ export default function EmotionTimelineChart({ emotionData }: Props) {
       },
       tooltip: {
         callbacks: {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          label: (context: any) => {
+          label: (context: import('chart.js').TooltipItem<'line'>) => {
             const emotionNames = Object.entries(emotionToValue).find(
               ([, v]) => v === context.parsed.y
             );

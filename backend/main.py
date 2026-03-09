@@ -10,7 +10,7 @@ import json
 import re
 import asyncio
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, List, Dict
 
@@ -114,6 +114,11 @@ def detect_emotion(text: str) -> tuple[str, float]:
     """
     Detect emotion from text using keyword-based heuristics.
     In production, replace with a proper sentiment/emotion model.
+
+    Returns:
+        tuple[str, float]: (emotion_name, confidence_score) where emotion_name is one of
+        'angry', 'frustrated', 'concerned', 'happy', 'positive', 'confident', 'uncertain',
+        or 'neutral', and confidence_score is in the range [0.55, 0.95].
     """
     text_lower = text.lower()
 
@@ -279,7 +284,7 @@ def mock_process_audio(file_path: str, title: str) -> Dict:
 
     return {
         "title": title,
-        "date": datetime.utcnow().isoformat(),
+        "date": datetime.now(timezone.utc).isoformat(),
         "duration": format_timestamp(duration_secs),
         "duration_seconds": float(duration_secs),
         "participants": participants,
@@ -372,7 +377,7 @@ async def upload_meeting(
     meetings_db[meeting_id] = {
         "id": meeting_id,
         "title": title,
-        "date": datetime.utcnow().isoformat(),
+        "date": datetime.now(timezone.utc).isoformat(),
         "duration": "0:00",
         "duration_seconds": 0,
         "participants": [],
