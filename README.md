@@ -1,4 +1,4 @@
-# Minutes 🎙️
+# Minutes
 
 An AI-powered Meeting Intelligence Application that automatically transcribes meetings, identifies speakers, detects emotions, highlights action items, and generates smart reports.
 
